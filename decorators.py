@@ -1,5 +1,5 @@
-# def add(a, b):
-#     return a + b
+def add(a, b):
+    return a + b
 
 
 # sum = add(1,)
@@ -44,11 +44,25 @@
 # my_func = outer()
 # my_func()
 
-def python():
-    def inner_python():
-        print("python is cool")
-    return inner_python
+# def python():
+#     def inner_python():
+#         print("python is cool")
+#     return inner_python
 
-python_func = python()
+# python_func = python()
 
-python_func()
+# python_func()
+
+
+def my_decorator(func, a, b):
+    def wrapper():
+        print("Before the function runs")
+        sum = func(a, b)
+        print(sum ** 2)
+        print("After the function runs")
+    return wrapper
+
+new_func = my_decorator(add, 2, 3)
+
+new_func()
+
